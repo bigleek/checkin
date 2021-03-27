@@ -4,7 +4,7 @@ tianyi_session = requests.Session()
 
 username = ""
 password = ""
-cookie = sys.argv[0]
+cookie = sys.argv[1]
 
 # Server酱报错推送提醒，需要填下下面的key，官网：https://sc.ftqq.com/3.version
 SCKEY = ""
@@ -55,7 +55,7 @@ def checkin():
     rand = str(round(time.time() * 1000))
     url = 'https://xn--gmqz83awjh.com/user/checkin'
     response = tianyi_session.get(url, headers=headers)
-    res = response.json()
+    res = response
  
     pushMessage({
             "text": res,
