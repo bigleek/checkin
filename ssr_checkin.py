@@ -1,4 +1,4 @@
-import requests, time, re, rsa, base64, hashlib
+import requests, time, re, rsa, base64, hashlib,sys
 
 tianyi_session = requests.Session()
 
