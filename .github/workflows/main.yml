@@ -32,6 +32,6 @@ jobs:
         pwd="${{ secrets.PWD }}"
         cookie="${{ secrets.cookie }}"
         echo "----------"
-        python3 C189Checkin.py cookie
+        python3 ssr_checkin.py cookie
         echo "----------"
         done
