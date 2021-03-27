@@ -1,0 +1,37 @@
+name: checkin
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  schedule:
+    - cron: 0 2,14 * * *
+
+jobs:
+  checkin:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: 'setup python'
+      uses: actions/setup-python@master
+      with: 
+        python-version: 3.7
+      
+    - name: requirements
+      run: |
+        pip3 install -r requirements.txt
+        
+    - name: Checkin
+      run: |
+
+        user="${{ secrets.USER }}"
+        pwd="${{ secrets.PWD }}"
+        cookie="${{ secrets.cookie }}"
+        echo "----------"
+        python3 C189Checkin.py cookie
+        echo "----------"
+        done
